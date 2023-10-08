@@ -14,7 +14,7 @@ return [
     | you may use many connections at once using the Database library.
     |
     */
-
+    // if there is no DB_CONNECTION, then the default value will be the second parameter 'mysql'
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*

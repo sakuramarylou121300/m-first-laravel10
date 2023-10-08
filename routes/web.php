@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
+use App\Http\Controllers\Profile\AvatarController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,7 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    // return view('welcome');
+    return view('welcome');
     //select all
     // $getAllUser = DB::select("select * from users");
     // dd($getAllUser);
@@ -92,8 +93,10 @@ Route::get('/', function () {
     // dd($eloquentGetFirst);
 
     //get one second option
-    $eloquentGetOne2 = User::find(4);
-    dd($eloquentGetOne2);
+    // $eloquentGetOne2 = User::find(4);
+    // dd($eloquentGetOne2);
+    //get only the name
+    // dd($eloquentGetOne2->name);
 
     //insert
     // $eloquentInsertUser = User::create([
@@ -132,6 +135,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    // THIS IS FOR THE UPDATE AVATAR
+    Route::patch('/profile/avatar', [AvatarController::class,'update'])->name('profile.avatar');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 

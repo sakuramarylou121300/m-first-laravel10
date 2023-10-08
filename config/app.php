@@ -15,7 +15,7 @@ return [
     | any other location as required by the application or its packages.
     |
     */
-
+    // APP_NAME, can be found in .env file
     'name' => env('APP_NAME', 'Laravel'),
 
     /*
