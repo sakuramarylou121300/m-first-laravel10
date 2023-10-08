@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form method="post" action="{{route('profile.avatar')}}">
+    <form method="post" action="{{route('profile.avatar')}}" enctype="multipart/form-data">
         @method('patch')
         {{-- THIS IS THE SHORTCUT, INSTEAD OF MANUALLY CREATING INPUT TYPE HIDDEN --}}
         @csrf
@@ -23,8 +23,8 @@
         {{-- <input type="hidden" name="_token" value="{{csrf_token()}}"> --}}
         <div>
             <x-input-label for="avatar" :value="__('Avatar ')" />
-            <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('name', $user->name)" required autofocus autocomplete="name" />
-            <x-input-error class="mt-2" :messages="$errors->get('name')" />
+            <x-text-input id="avatar" name="avatar" type="file" class="mt-1 block w-full" :value="old('name', $user->name)" autofocus autocomplete="name" />
+            <x-input-error class="mt-2" :messages="$errors->get('avatar')" />
         </div>
 
         <div class="flex items-center gap-4 mt-4">
