@@ -5,7 +5,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Http\Controllers\Profile\AvatarController;
-
+use OpenAI\Laravel\Facades\OpenAI;//this is for the openai
+use Laravel\Socialite\Facades\Socialite;//THIS IS FOR THE LOG IN
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -141,3 +142,23 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// //THIS IS A GET REQUEST FOR OPENAI
+// Route::get('/openai', function(){
+//     $result = OpenAI::completions()->create([
+//         'model' => 'text-davinci-003',
+//         'prompt' => 'PHP is',
+//     ]);
+
+//     echo $result['choices'][0]['text']; // an open-source, widely-used, server-side scripting language.
+// });
+//THIS IS FOR LOG IN
+// Route::get('/auth/redirect', function () {
+//     return Socialite::driver('github')->redirect(); 
+// });
+// Route::get('/auth/callback', function () {
+//     $user = Socialite::driver('github')->user();
+ 
+//     $user->token;
+//     // dd($user);
+// });
